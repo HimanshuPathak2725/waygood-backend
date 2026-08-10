@@ -40,7 +40,15 @@ const apiLimiter = rateLimit({
   },
 });
 
-app.use(cors());
+const corsOptions = {
+  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  credentials: true,
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(helmet());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 if (process.env.NODE_ENV !== "test") {
@@ -58,5 +66,8 @@ app.use("/api/dashboard", dashboardRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
+
+const aiRoutes = require('./routes/ai');
+app.use('/api/ai', aiRoutes);
 
 module.exports = app;
