@@ -84,7 +84,7 @@ describe("Recommendation engine", () => {
     expect(res.body.data.recommendations[0].country).toBe("Canada");
     expect(res.body.data.recommendations[0].matchScore).toBeGreaterThan(0);
     expect(res.body.data.recommendations[0].reasons.length).toBeGreaterThan(0);
-    expect(res.body.data.meta.implementationStatus).toBe("mongodb-aggregation");
+    expect(res.body.meta.implementationStatus).toBe("mongodb-aggregation");
   });
 
   it("returns empty array when student has no matching preferences", async () => {

@@ -1,6 +1,6 @@
 const express = require("express");
 const { generateSopHelper } = require("../controllers/aiController");
-const requireAuth = require("../middleware/requireAuth");
+const { requireAuth } = require("../middleware/auth");
 
 const router = express.Router();
 
