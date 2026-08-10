@@ -293,6 +293,27 @@ via `Program.aggregate(...)`, instead of the starter's "fetch candidates, score 
 
 ## Setup (Recap)
 
+### Option A — Native MongoDB (recommended if you're short on disk space)
+
+```bash
+# Install MongoDB Community Edition on Ubuntu/WSL (one-time setup)
+curl -fsSL https://pgp.mongodb.com/server-7.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu $(lsb_release -cs)/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+sudo apt update
+sudo apt install -y mongodb-org
+sudo systemctl start mongod       # or: sudo mongod --dbpath ~/mongo-data --fork --logpath ~/mongo-data/mongod.log
+sudo systemctl enable mongod      # optional: auto-start on boot
+```
+
+If `systemctl` isn't available under WSL, start it manually in the background instead:
+
+```bash
+mkdir -p ~/mongo-data
+mongod --dbpath ~/mongo-data --fork --logpath ~/mongo-data/mongod.log
+```
+
+Then run the app as normal:
+
 ```bash
 cd backend
 npm install
@@ -301,3 +322,22 @@ npm run seed
 npm run dev      # starts the API on http://localhost:4000
 npm test         # runs the Jest/Supertest suite against an in-memory MongoDB
 ```
+
+### Option B — Docker (bonus deliverable)
+
+A `docker-compose.yml` at the repo root spins up MongoDB and the backend together, so no
+native Mongo install is needed at all. **This was written and syntax-validated in the build
+environment but not run end-to-end there** (no Docker daemon / no Docker Hub network access in
+that sandbox) — run it locally to confirm, and flag any image/build issues if you hit them.
+
+```bash
+cp backend/.env.example backend/.env   # optional, compose sets its own env vars
+docker compose up --build              # starts mongo + backend
+docker compose exec backend npm run seed   # seed the database once containers are up
+```
+
+The backend will be reachable at `http://localhost:4000`, and MongoDB data persists in a named
+Docker volume (`mongo-data`) across restarts. Given the storage constraints mentioned for local
+dev, Option A (native Mongo) is the lighter day-to-day path — Docker here exists to satisfy the
+bonus "Dockerize the backend and database setup" task and to make the project trivially runnable
+on any other machine.

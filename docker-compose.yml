@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  mongo:
+    image: mongo:7
+    container_name: waygood-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+    container_name: waygood-backend
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    environment:
+      PORT: 4000
+      # "mongo" resolves via Docker's internal DNS to the mongo service above.
+      MONGODB_URI: mongodb://mongo:27017/waygood-evaluation
+      JWT_SECRET: ${JWT_SECRET:-dev-secret-change-me}
+      JWT_EXPIRES_IN: 1d
+      CACHE_TTL_SECONDS: 300
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+volumes:
+  mongo-data:
