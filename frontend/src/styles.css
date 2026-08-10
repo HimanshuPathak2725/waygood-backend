@@ -1,0 +1,226 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600&family=Sora:wght@400;500;600;700&display=swap");
+
+:root {
+  color-scheme: light;
+  --bg: #f6f1e8;
+  --bg-strong: #efe3cd;
+  --surface: rgba(255, 255, 255, 0.68);
+  --surface-strong: #fffaf1;
+  --text: #1d3026;
+  --muted: #54665d;
+  --accent: #1d7a65;
+  --accent-strong: #125848;
+  --warm: #d98639;
+  --line: rgba(29, 48, 38, 0.12);
+  --shadow: 0 24px 80px rgba(41, 53, 39, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Sora", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(217, 134, 57, 0.18), transparent 26%),
+    radial-gradient(circle at right center, rgba(29, 122, 101, 0.12), transparent 24%),
+    linear-gradient(180deg, #fbf7ef 0%, var(--bg) 100%);
+  color: var(--text);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(29, 48, 38, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29, 48, 38, 0.03) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 80%);
+}
+
+.page-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 72px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.hero-copy,
+.hero-panel,
+.signal,
+.info-card,
+.spotlight-card,
+.closing-note {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+}
+
+.hero-copy {
+  padding: 36px;
+  border-radius: 28px;
+}
+
+.hero-panel {
+  padding: 28px;
+  border-radius: 28px;
+  background:
+    linear-gradient(160deg, rgba(29, 122, 101, 0.92), rgba(18, 88, 72, 0.96)),
+    var(--surface);
+  color: #eff8f4;
+}
+
+.panel-label,
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.section h2 {
+  margin: 0;
+  font-family: "IBM Plex Serif", Georgia, serif;
+  line-height: 1.05;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  max-width: 10ch;
+}
+
+.hero-text {
+  margin: 18px 0 0;
+  max-width: 62ch;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.hero-panel ul {
+  margin: 16px 0 0;
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+.signal-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 24px 0 12px;
+}
+
+.signal {
+  padding: 20px;
+  border-radius: 22px;
+}
+
+.signal span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-bottom: 10px;
+}
+
+.signal strong {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.section {
+  margin-top: 26px;
+}
+
+.section-heading {
+  margin-bottom: 16px;
+}
+
+.section h2 {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  max-width: 12ch;
+}
+
+.card-grid,
+.spotlight-list {
+  display: grid;
+  gap: 18px;
+}
+
+.card-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.spotlight-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.info-card,
+.spotlight-card,
+.closing-note {
+  padding: 24px;
+  border-radius: 24px;
+}
+
+.info-card h3,
+.spotlight-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+.info-card p,
+.spotlight-card p,
+.closing-note p {
+  margin: 0;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.spotlight-country {
+  margin-bottom: 12px;
+  color: var(--accent-strong);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+
+.closing-note {
+  background:
+    linear-gradient(135deg, rgba(255, 250, 241, 0.94), rgba(239, 227, 205, 0.82));
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .signal-strip,
+  .card-grid,
+  .spotlight-list {
+    grid-template-columns: 1fr;
+  }
+
+  .page-shell {
+    width: min(100% - 24px, 1120px);
+    padding-top: 24px;
+    padding-bottom: 56px;
+  }
+
+  .hero-copy,
+  .hero-panel,
+  .signal,
+  .info-card,
+  .spotlight-card,
+  .closing-note {
+    border-radius: 22px;
+  }
+}

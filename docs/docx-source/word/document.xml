@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" mc:Ignorable="w14 wp14">
+  <w:body>
+    <w:p><w:pPr><w:pStyle w:val="Title"/></w:pPr><w:r><w:t>Waygood Candidate Assignment</w:t></w:r></w:p>
+    <w:p><w:r><w:t>This assignment is designed for backend-focused MERN candidates interviewing with Waygood.</w:t></w:r></w:p>
+    <w:p><w:r><w:t>The product context is a study-abroad platform where students discover universities, compare programs, and track application progress with counselor support.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>Business Scenario</w:t></w:r></w:p>
+    <w:p><w:r><w:t>You are working on a platform that helps students shortlist destinations, evaluate tuition fit, and manage their study-abroad application journey.</w:t></w:r></w:p>
+    <w:p><w:r><w:t>The starter project already includes sample entities, seeded data, a React dashboard shell, and a backend code structure with intentional gaps.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>Required Tasks</w:t></w:r></w:p>
+    <w:p><w:r><w:t>1. Implement secure authentication with register, login, and protected profile APIs using JWT and password hashing.</w:t></w:r></w:p>
+    <w:p><w:r><w:t>2. Complete advanced university and program discovery with filtering, pagination, sorting, and a clean response format.</w:t></w:r></w:p>
+    <w:p><w:r><w:t>3. Build a recommendation engine using MongoDB aggregation based on student country, budget, field, intake, and IELTS preferences.</w:t></w:r></w:p>
+    <w:p><w:r><w:t>4. Implement the application workflow, duplicate prevention, valid status transitions, and status history tracking.</w:t></w:r></w:p>
+    <w:p><w:r><w:t>5. Add caching and performance improvements for key responses and document index choices.</w:t></w:r></w:p>
+    <w:p><w:r><w:t>6. Add tests for important API flows and document assumptions or architecture notes in the README.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>Bonus Tasks</w:t></w:r></w:p>
+    <w:p><w:r><w:t>Optional ideas include AI-assisted study planning, Docker setup, React dashboard improvements, and stronger security or rate limiting.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>Evaluation Focus</w:t></w:r></w:p>
+    <w:p><w:r><w:t>We will evaluate API design, MongoDB understanding, aggregation quality, performance thinking, maintainability, testing, and how well the solution reflects a real study-abroad workflow.</w:t></w:r></w:p>
+    <w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>Submission Expectations</w:t></w:r></w:p>
+    <w:p><w:r><w:t>Share your repository, setup instructions, environment notes, and any assumptions needed to review your implementation.</w:t></w:r></w:p>
+    <w:sectPr>
+      <w:pgSz w:w="12240" w:h="15840"/>
+      <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="708" w:footer="708" w:gutter="0"/>
+    </w:sectPr>
+  </w:body>
+</w:document>

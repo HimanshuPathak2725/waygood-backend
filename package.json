@@ -1,0 +1,15 @@
+{
+  "name": "waygood-candidate-evaluation-starter",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Study abroad candidate evaluation starter for Waygood backend-focused MERN internships.",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "seed": "npm --prefix backend run seed"
+  }
+}
